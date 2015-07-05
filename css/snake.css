@@ -1,0 +1,42 @@
+html, body, h1, ul, li {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	font: inherit;
+	text-decoration: inherit;
+	text-align: inherit;
+}
+
+ul {
+	list-style: none;
+}
+
+.grid {
+	margin: auto;
+	display: block;
+	width: 500px;
+	height: 500px;
+	background: lightgreen;
+	border: 5px	dotted green;
+}
+
+h1 {
+	font-size: 50px;
+	font-family: sans-serif;
+	text-align: center;
+}
+
+.grid > li {
+	height: 18px;
+	width: 18px;
+	border: 1px solid #000;
+	float: left;
+}
+
+.grid > .apple {
+	background: red;
+}
+
+.grid > .snake {
+	background: green;
+}
