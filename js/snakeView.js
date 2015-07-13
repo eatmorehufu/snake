@@ -37,6 +37,7 @@ View.prototype.bindKeys = function() {
 		if (event.keyCode === 40) {
 			this.board.snake.turn('S');
 		};
+		this.board.snake.canTurn = false;
 	}.bind(this))
 }
 
@@ -44,6 +45,7 @@ View.prototype.step = function (){
 	if (this.board.snake.hitSelf() || this.board.snake.hitEdge()){
 		this.gameOver();
 	} else {
+		this.board.snake.canTurn = true;
 		this.board.generateApple();
 		this.board.snake.move(this.board.apple);
 		this.draw();

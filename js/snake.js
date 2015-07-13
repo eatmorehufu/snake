@@ -57,14 +57,8 @@
 					!(eastWest.indexOf(this.dir) !== -1 && eastWest.indexOf(dir) !== -1) &&
 					this.canTurn
 				 ) {
-				this.canTurn = false;
 				this.dir = dir;
-				console.log("snake can't turn now!");
 				var snake = this;
-				window.setTimeout(function(){
-					console.log("snake can turn again!");
-					snake.canTurn = true;
-				}, 50);
 			};
 		};
 
