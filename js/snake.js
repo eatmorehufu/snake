@@ -3,7 +3,8 @@
 			window.SnakeGame = {};
 		}
 
-		var Snake = SnakeGame.Snake = function (){
+		var Snake = SnakeGame.Snake = function (board){
+			this.board = board;
 			this.dir = 'N';
 			this.segments = [312, 337, 362];
 		};
@@ -12,8 +13,14 @@
 			var newSpace = this.testMove();
 			this.segments.unshift(newSpace);
 			if (newSpace !== apple){
-					this.segments.pop();
+				this.segments.pop();
+			} else {
+				for (var i = 0; i < this.segments.length; i++) {
+					if (this.board.life.indexOf(this.segments[i]) === -1) {
+						this.board.life.push(this.segments[i]);
+					}
 				}
+			}
 			this.canTurn = true;
 		};
 
@@ -61,19 +68,5 @@
 				var snake = this;
 			};
 		};
-
-		SnakeGame.Coord = {
-			plus: function(){
-
-			},
-			equals: function () {
-
-			},
-			isOpposite: function () {
-
-			}
-		};
-
-
 
 })();

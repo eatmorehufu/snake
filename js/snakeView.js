@@ -27,17 +27,20 @@ View.prototype.bindKeys = function() {
 	$(document).on("keydown", function(event){
 		if (event.keyCode === 38) {
 			this.board.snake.turn('N');
+			this.board.snake.canTurn = false;
 		};
 		if (event.keyCode === 37) {
 			this.board.snake.turn('W');
+			this.board.snake.canTurn = false;
 		}
 		if (event.keyCode === 39) {
 			this.board.snake.turn('E');
+			this.board.snake.canTurn = false;
 		}
 		if (event.keyCode === 40) {
 			this.board.snake.turn('S');
+			this.board.snake.canTurn = false;
 		};
-		this.board.snake.canTurn = false;
 	}.bind(this))
 }
 
@@ -45,9 +48,9 @@ View.prototype.step = function (){
 	if (this.board.snake.hitSelf() || this.board.snake.hitEdge()){
 		this.gameOver();
 	} else {
-		this.board.snake.canTurn = true;
 		this.board.generateApple();
 		this.board.snake.move(this.board.apple);
+		this.iterateLife();
 		this.draw();
 	};
 };
@@ -60,12 +63,20 @@ View.prototype.gameOver = function (){
 View.prototype.draw = function() {
 	this.$game.find('.snake').removeClass("snake");
 	this.$game.find('.apple').removeClass("apple");
-	var view = this;
+	var segments = this.board.snake.segments
 	$(this.$game.find('li')[this.board.apple]).addClass("apple");
-	this.board.snake.segments.forEach( function(element){
-		$(view.$game.find('li')[element]).addClass("snake");
-	})
+	for (var i = 0; i < segments.length; i++ ) {
+		$(this.$game.find('li')[segments[i]]).addClass("snake")
+	}
 };
+
+View.prototype.iterateLife = function() {
+	var liveCells = this.board.liveStep();
+	this.$game.find('.life').removeClass("life");
+	for (var i = 0; i < liveCells.length; i++ ){
+		$(this.$game.find('li')[liveCells[i]]).addClass("life");
+	}
+}
 
 
 })();
