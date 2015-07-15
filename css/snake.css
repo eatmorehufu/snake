@@ -37,7 +37,6 @@ h1 {
 
 .grid .life {
 	border: 1px solid white;
-	box-shadow: 0px 0px 10px white;
 }
 
 .grid > .apple {
