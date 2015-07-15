@@ -33,6 +33,21 @@ Board.prototype.generateApple = function() {
 	};
 };
 
+Board.prototype.togglePause = function() {
+	if (this.paused) {
+		this.paused = false;
+	} else {
+		this.paused = true;
+	}
+}
+
+Board.prototype.restart = function() {
+	this.snake.reset();
+	this.apple = null;
+	this.over = false;
+	$(".game-over").empty();
+}
+
 Board.prototype.liveStep = function() {
 	var activeSq = this.activeSquares();
 	var nextLife = [];

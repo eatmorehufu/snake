@@ -9,6 +9,10 @@
 			this.segments = [312, 337, 362];
 		};
 
+		Snake.prototype.reset = function(){
+			this.segments = [312, 337, 362];
+		}
+
 		Snake.prototype.move = function (apple) {
 			var newSpace = this.testMove();
 			this.segments.unshift(newSpace);
