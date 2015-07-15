@@ -65,8 +65,7 @@
 			var eastWest = ['E', 'W'];
 			if (
 					!(northSouth.indexOf(this.dir) !== -1 && northSouth.indexOf(dir) !== -1) &&
-					!(eastWest.indexOf(this.dir) !== -1 && eastWest.indexOf(dir) !== -1) &&
-					this.canTurn
+					!(eastWest.indexOf(this.dir) !== -1 && eastWest.indexOf(dir) !== -1)
 				 ) {
 				this.dir = dir;
 				var snake = this;
