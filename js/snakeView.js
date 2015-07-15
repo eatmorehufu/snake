@@ -45,18 +45,20 @@ View.prototype.bindKeys = function() {
 }
 
 View.prototype.step = function (){
-	if (this.board.snake.hitSelf() || this.board.snake.hitEdge()){
-		this.gameOver();
-	} else {
-		this.board.generateApple();
-		this.board.snake.move(this.board.apple);
-		this.iterateLife();
-		this.draw();
+	this.iterateLife();
+	if (!this.board.over && !this.board.paused) {
+		if (this.board.snake.hitSelf() || this.board.snake.hitEdge()){
+			this.gameOver();
+		} else {
+			this.board.generateApple();
+			this.board.snake.move(this.board.apple);
+			this.draw();
+		}
 	};
 };
 
 View.prototype.gameOver = function (){
-	window.clearInterval(this.interval);
+	this.board.over = true;
 	this.$game.append("<h1>Game Over!</h1>");
 }
 
