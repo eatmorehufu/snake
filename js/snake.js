@@ -11,6 +11,7 @@
 
 		Snake.prototype.reset = function(){
 			this.segments = [312, 337, 362];
+			this.dir = 'N';
 		}
 
 		Snake.prototype.move = function (apple) {
