@@ -16,7 +16,7 @@ ul {
 	display: block;
 	width: 500px;
 	height: 500px;
-	background: lightgreen;
+	background: black;
 	border: 5px	dotted green;
 }
 
@@ -29,14 +29,14 @@ h1 {
 .grid > li {
 	height: 18px;
 	width: 18px;
-	border: 1px solid lightgreen;
+	border: 1px solid black;
 	float: left;
 	transition: border-radius 0.5s, border 0.5s, box-shadow 0.5s;
 	border-radius: 0px;
 }
 
 .grid .life {
-	border: 1px solid white;
+	border: 1px solid lightgreen;
 }
 
 .grid > .apple {
