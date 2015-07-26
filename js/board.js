@@ -7,6 +7,7 @@ var Board = SnakeGame.Board = function(){
 	this.snake = new SnakeGame.Snake(this);
 	this.apple = null;
 	this.life = [];
+	this.score = 0;
 };
 
 Board.NABES = {
@@ -48,6 +49,8 @@ Board.prototype.restart = function() {
 	this.apple = null;
 	this.over = false;
 	$(".game-over").empty();
+	this.score = 0;
+	$(".score > h3").html(this.score);
 }
 
 Board.prototype.liveStep = function() {

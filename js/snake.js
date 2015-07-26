@@ -20,7 +20,7 @@
 			var newSpace = this.testMove();
 			this.segments.unshift(newSpace);
 			if (newSpace === apple ){
-				this.spawnLife();
+				this.board.score += 10;
 				this.spawnLife();
 				this.segmentsToAdd += 3;
 			} else if (this.segmentsToAdd > 0){

@@ -1,4 +1,4 @@
-html, body, h1, ul, li {
+html, body, h1, h2, h3, ul, li {
 	padding: 0;
 	margin: 0;
 	border: 0;
@@ -7,12 +7,22 @@ html, body, h1, ul, li {
 	text-align: inherit;
 }
 
+body {
+	font-family: 'Codystar', cursive;
+	background: #ccc;
+}
+
 ul {
 	list-style: none;
 }
 
+.group:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
 .grid {
-	margin: auto;
 	display: block;
 	width: 500px;
 	height: 500px;
@@ -22,7 +32,6 @@ ul {
 
 h1 {
 	font-size: 50px;
-	font-family: sans-serif;
 	text-align: center;
 }
 
@@ -49,4 +58,53 @@ h1 {
 
 .grid > .snake {
 	background: green;
+}
+
+#snake {
+	float: left;
+}
+
+.game-window {
+	margin: auto;
+	width: 800px;
+}
+
+.dashboard > li {
+	border: 5px	dotted green;
+	background: black;
+	margin: 15px;
+	color: lightgreen;
+	/*font-family: sans-serif;*/
+	text-align: center;
+	padding: 10px;
+}
+
+.score {
+	width: 150px;
+	height: 100px;
+	display: block;
+}
+
+.score h2 {
+	padding: 10px 0px;
+	font-size: 30px;
+}
+
+.score h3 {
+	font-size: 24px;
+}
+
+.dashboard {
+	float: right;
+	width: 210px;
+}
+.game-over {
+	padding-top: 40px;
+	height: 163px;
+}
+
+footer {
+	width: 720px;
+	margin: auto;
+	font-family: sans-serif;
 }

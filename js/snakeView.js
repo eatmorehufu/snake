@@ -9,6 +9,7 @@ var View = SnakeGame.View = function(board, $el) {
 	this.setup();
 	this.bindKeys();
 	this.interval = window.setInterval(this.step.bind(this), 100);
+	this.board.togglePause();
 };
 
 
@@ -81,6 +82,7 @@ View.prototype.draw = function() {
 	for (var i = 0; i < segments.length; i++ ) {
 		$(this.$game.find('li')[segments[i]]).addClass("snake")
 	}
+	$(".score > h3").html(this.board.score);
 };
 
 View.prototype.iterateLife = function() {

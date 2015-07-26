@@ -10,11 +10,20 @@
 		<script src="./js/snake.js"></script>
 		<script src="./js/board.js"></script>
 		<script src="./js/snakeView.js"></script>
-		<h1>Conway's Game of Snake</h1>
-		<figure id="snake">
+		<link href='http://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
+		<div class="game-window group">
+			<h1>Conway's Game of Snake</h1>
+			<figure id="snake">
 
-		</figure>
-		<h1 class="game-over"></h1>
+			</figure>
+			<ul class="dashboard">
+			<li><span class="score"><h2>Score</h2><h3>0</h3></span></li>
+			<li><p>Press 'P' to pause and (re)start</p></li>
+			<li><h1 class="game-over"></h1></li>
+			</ul>
+		</div>
+		<footer>Game by Dean Hu 2015. Wondering what's going on in the background?
+			Check out my <a href="www.github.com/eatmorehufu/snake">Github</a></footer>
 		<script>
 			$(function () {
 				var board = new SnakeGame.Board();
