@@ -61,7 +61,7 @@ View.prototype.step = function (){
 		if (this.board.snake.hitSelf() || this.board.snake.hitEdge()){
 			this.gameOver();
 		} else {
-			this.board.generateApple();
+			this.board.apple = this.board.generateApple(this.board.apple);
 			this.board.snake.move(this.board.apple);
 			this.draw();
 		}

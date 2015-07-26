@@ -7,24 +7,26 @@
 			this.board = board;
 			this.dir = 'N';
 			this.segments = [312, 337, 362];
+			this.segmentsToAdd = 0;
 		};
 
 		Snake.prototype.reset = function(){
 			this.segments = [312, 337, 362];
+			this.segmentsToAdd = 0;
 			this.dir = 'N';
 		}
 
 		Snake.prototype.move = function (apple) {
 			var newSpace = this.testMove();
 			this.segments.unshift(newSpace);
-			if (newSpace !== apple){
-				this.segments.pop();
+			if (newSpace === apple ){
+				this.spawnLife();
+				this.spawnLife();
+				this.segmentsToAdd += 3;
+			} else if (this.segmentsToAdd > 0){
+				this.segmentsToAdd -= 1;
 			} else {
-				for (var i = 0; i < this.segments.length; i++) {
-					if (this.board.life.indexOf(this.segments[i]) === -1) {
-						this.board.life.push(this.segments[i]);
-					}
-				}
+				this.segments.pop();
 			}
 			this.canTurn = true;
 		};
@@ -72,5 +74,13 @@
 				var snake = this;
 			};
 		};
+
+		Snake.prototype.spawnLife = function () {
+			for (var i = 0; i < this.segments.length; i++) {
+				if (this.board.life.indexOf(this.segments[i]) === -1) {
+					this.board.life.push(this.segments[i]);
+				}
+			}
+		}
 
 })();
