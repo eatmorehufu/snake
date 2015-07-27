@@ -82,6 +82,7 @@ View.prototype.draw = function() {
 	for (var i = 0; i < segments.length; i++ ) {
 		$(this.$game.find('li')[segments[i]]).addClass("snake")
 	}
+	this.reassignHead();
 	$(".score > h3").html(this.board.score);
 };
 
@@ -90,6 +91,26 @@ View.prototype.iterateLife = function() {
 	this.$game.find('.life').removeClass("life");
 	for (var i = 0; i < liveCells.length; i++ ){
 		$(this.$game.find('li')[liveCells[i]]).addClass("life");
+	}
+};
+
+View.prototype.reassignHead = function () {
+	this.$game.find('.head').removeClass("head left right up down");
+	var $head = $(this.$game.find('li')[this.board.snake.segments[0]])
+	$head.addClass("head");
+	switch (this.board.snake.dir) {
+		case 'N':
+			$head.addClass("up");
+			break;
+		case 'S':
+			$head.addClass("down");
+			break;
+		case 'W':
+			$head.addClass("left");
+			break;
+		case 'E':
+			$head.addClass("right");
+			break;
 	}
 }
 

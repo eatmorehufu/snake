@@ -42,6 +42,7 @@ h1 {
 	float: left;
 	transition: border 0.5s;
 	border-radius: 0px;
+	position: relative;
 }
 
 .grid .life {
@@ -74,7 +75,6 @@ h1 {
 	background: black;
 	margin: 15px;
 	color: lightgreen;
-	/*font-family: sans-serif;*/
 	text-align: center;
 	padding: 10px;
 }
@@ -98,9 +98,47 @@ h1 {
 	float: right;
 	width: 210px;
 }
+
 .game-over {
 	padding-top: 40px;
 	height: 163px;
+}
+
+.head:after {
+	content: "";
+	position: absolute;
+	top: 0px;
+	width: 0;
+	height: 0;
+	border-radius: 5px;
+}
+
+.head.left:after {
+	border-bottom: 9px solid transparent;
+	border-top: 9px solid transparent;
+	border-right: 20px solid green;
+}
+
+.head.right:after {
+	border-top: 9px solid transparent;
+	border-bottom: 9px solid transparent;
+	border-left: 20px solid green;
+}
+
+.head.up:after {
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	border-bottom: 20px solid green;
+}
+
+.head.down:after {
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	border-top: 20px solid green;
+}
+
+.grid > .head {
+	background: black;
 }
 
 footer {
