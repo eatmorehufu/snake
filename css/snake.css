@@ -114,27 +114,31 @@ h1 {
 }
 
 .head.left:after {
-	border-bottom: 9px solid transparent;
-	border-top: 9px solid transparent;
-	border-right: 20px solid green;
+	border-bottom: 5px solid transparent;
+	border-top: 5px solid transparent;
+	border-right: 18px solid green;
+	height: 8px;
 }
 
 .head.right:after {
-	border-top: 9px solid transparent;
-	border-bottom: 9px solid transparent;
-	border-left: 20px solid green;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 18px solid green;
+	height: 8px;
 }
 
 .head.up:after {
-	border-left: 9px solid transparent;
-	border-right: 9px solid transparent;
-	border-bottom: 20px solid green;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 18px solid green;
+	width: 8px;
 }
 
 .head.down:after {
-	border-left: 9px solid transparent;
-	border-right: 9px solid transparent;
-	border-top: 20px solid green;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 18px solid green;
+	width: 8px;
 }
 
 .grid > .head {
